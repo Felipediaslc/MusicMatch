@@ -38,3 +38,5 @@ logging:
   file: musicMatch-service.log
 paginacao:
     qtd_por_pagina: 100
+openweathermap:
+  key: 44e50b6fe6b867fb08afae593925409b
