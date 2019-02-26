@@ -61,7 +61,18 @@ public class MusicMatchController extends MusicMatchControllerUtil {
 
         // TODO celsius = kelvin - 273.0;
 
-        OpenWeatherDto result = (OpenWeatherDto) this.openWeatherMapClient.getByCityName("recice,br", appId);
+        OpenWeatherDto resultPorCidade = this.openWeatherMapClient.getByCityName(musicMatchDto.getCidade(), appId).getBody();
+        OpenWeatherDto resultPorLocalizacao = this.openWeatherMapClient.getByGeographicCoordinates(
+                musicMatchDto.getLat(),
+                musicMatchDto.getLon(),
+                appId).getBody();
+
+
+        if (resultPorCidade.getPrincipal().getTemp() == resultPorLocalizacao.getPrincipal().getTemp()) {
+            response.setData(String.format("A temperatura informada pelo servico foi: %s", (resultPorCidade.getPrincipal().getTemp() - 273.0)));
+        } else {
+            response.addError("Houve um erro na captura de dados nos serviços");
+        }
 
         return ResponseEntity.ok(response);
     }

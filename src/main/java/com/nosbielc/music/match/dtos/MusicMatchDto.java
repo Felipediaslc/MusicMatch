@@ -6,8 +6,8 @@ import java.util.StringJoiner;
 public class MusicMatchDto implements Serializable {
 
     private String cidade;
-    private String lat;
-    private String lon;
+    private Double lat;
+    private Double lon;
 
     @Override
     public String toString() {
@@ -21,7 +21,7 @@ public class MusicMatchDto implements Serializable {
     public MusicMatchDto() {
     }
 
-    public MusicMatchDto(String cidade, String lat, String lon) {
+    public MusicMatchDto(String cidade, Double lat, Double lon) {
         this.cidade = cidade;
         this.lat = lat;
         this.lon = lon;
@@ -35,19 +35,19 @@ public class MusicMatchDto implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public String getLon() {
+    public Double getLon() {
         return lon;
     }
 
-    public void setLon(String lon) {
+    public void setLon(Double lon) {
         this.lon = lon;
     }
 }
