@@ -11,7 +11,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Service
 @FeignClient(name = "openweathermap", url = "http://api.openweathermap.org")
-public interface OpenWeatherMapClient {
+public interface IOpenWeatherMapClient {
 
     @RequestMapping(method = GET, value = "/data/2.5/weather")
     ResponseEntity<OpenWeatherDto> getByCityName(@RequestParam(value = "q") String q, @RequestParam(value = "appid") String appid);

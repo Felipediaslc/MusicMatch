@@ -29,8 +29,19 @@ public class Solicitacao implements Serializable {
     public Solicitacao() {
     }
 
+    public Solicitacao(String cidade, SolicitacaoStatus solicitacaoStatus) {
+        this.cidade = cidade;
+        this.solicitacaoStatus = solicitacaoStatus;
+    }
+
     public Solicitacao(String cidade, String lat, String lon, SolicitacaoStatus solicitacaoStatus) {
         this.cidade = cidade;
+        this.lat = lat;
+        this.lon = lon;
+        this.solicitacaoStatus = solicitacaoStatus;
+    }
+
+    public Solicitacao(String lat, String lon, SolicitacaoStatus solicitacaoStatus) {
         this.lat = lat;
         this.lon = lon;
         this.solicitacaoStatus = solicitacaoStatus;
