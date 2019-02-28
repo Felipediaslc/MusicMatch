@@ -1,6 +1,8 @@
 package com.nosbielc.music.match.client;
 
 import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
+import com.nosbielc.music.match.dtos.SpotifyPlayListDto;
+import com.nosbielc.music.match.dtos.SpotifyTracksDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,16 +27,16 @@ public interface ISpotifyClient {
 
     @RequestMapping(method = GET, value = "/v1/browse/categories/{categoria}/playlists",
             produces = "application/json", consumes = "application/json")
-    ResponseEntity<String> getPlayListByCategoria(@RequestHeader(value = "Authorization") String token,
-                                               @PathParam(value = "categoria") String categoria,
-                                               @RequestParam(value = "country") String country,
-                                               @RequestParam(value = "limit") String limit);
+    ResponseEntity<SpotifyPlayListDto> getPlayListByCategoria(@RequestHeader(value = "Authorization") String token,
+                                                              @PathParam(value = "categoria") String categoria,
+                                                              @RequestParam(value = "country") String country,
+                                                              @RequestParam(value = "limit") String limit);
 
     @RequestMapping(method = GET, value = "/v1/playlists/{idPlayList}/tracks",
             produces = "application/json", consumes = "application/json")
-    ResponseEntity<String> getTrackByPlayList(@RequestHeader(value = "Authorization") String token,
-                                                  @PathParam(value = "idPlayList") String idPlayList,
-                                                  @RequestParam(value = "country") String country,
-                                                  @RequestParam(value = "limit") String limit);
+    ResponseEntity<SpotifyTracksDto> getTracksByPlayList(@RequestHeader(value = "Authorization") String token,
+                                                        @PathParam(value = "idPlayList") String idPlayList,
+                                                        @RequestParam(value = "country") String country,
+                                                        @RequestParam(value = "limit") String limit);
 
 }
