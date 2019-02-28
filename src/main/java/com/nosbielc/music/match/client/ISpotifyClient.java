@@ -1,5 +1,6 @@
 package com.nosbielc.music.match.client;
 
+import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,9 @@ public interface ISpotifyClient {
 
     @RequestMapping(method = GET, value = "/v1/browse/categories",
             produces = "application/json", consumes = "application/json")
-    ResponseEntity<String> getCategorias(@RequestHeader(value = "Authorization") String token,
-                                               @RequestParam(value = "offset") String offset,
-                                               @RequestParam(value = "limit") String limit);
+    ResponseEntity<SpotifyCategoriasDto> getCategorias(@RequestHeader(value = "Authorization") String token,
+                                                       @RequestParam(value = "offset") String offset,
+                                                       @RequestParam(value = "limit") String limit);
 
     @RequestMapping(method = GET, value = "/v1/browse/categories/{categoria}/playlists",
             produces = "application/json", consumes = "application/json")

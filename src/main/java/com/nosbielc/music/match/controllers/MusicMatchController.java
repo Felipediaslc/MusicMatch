@@ -6,6 +6,7 @@ import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
 import com.nosbielc.music.match.dtos.OpenWeatherDto;
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
+import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
 import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.ParametroSolicitacaoEnum;
 import com.nosbielc.music.match.response.Response;
@@ -75,7 +76,7 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
 
         OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody();
 
-        String teste = this.sportifyClient.getCategorias(
+        SpotifyCategoriasDto spotifyCategoriasDto = this.sportifyClient.getCategorias(
                 "Bearer BQB0siKl5FV55hP2mEy2YB6HAoUC7adsVswEBdqGmBPQqIwj8Axu5y2tPT7OrN1LQXP425K-x8kqA3cGCeQ",
                 "0", "50").getBody();
 
