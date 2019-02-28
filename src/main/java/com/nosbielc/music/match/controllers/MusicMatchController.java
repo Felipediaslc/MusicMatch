@@ -1,11 +1,9 @@
 package com.nosbielc.music.match.controllers;
 
 import com.nosbielc.music.match.client.IOpenWeatherMapClient;
-import com.nosbielc.music.match.client.ISportifyClient;
+import com.nosbielc.music.match.client.ISpotifyClient;
 import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
-import com.nosbielc.music.match.dtos.MusicMatchByCityDto;
-import com.nosbielc.music.match.dtos.MusicMatchCoordinatesDto;
 import com.nosbielc.music.match.dtos.OpenWeatherDto;
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
 import com.nosbielc.music.match.entities.Solicitacao;
@@ -21,9 +19,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/musicMatch")
@@ -39,7 +40,7 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     private IOpenWeatherMapClient IOpenWeatherMapClient;
 
     @Autowired
-    private ISportifyClient sportifyClient;
+    private ISpotifyClient sportifyClient;
 
     @Value("${paginacao.qtd_por_pagina}")
     private int paginacao;
@@ -47,13 +48,12 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     @Value("${openweathermap.key}")
     private String appId;
 
-    @Value("${sportify.key}")
-    private String sportifyKey;
-
     @Override
-    public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(@RequestParam(value = "pag", defaultValue = "0") Integer pag,
-                                                              @RequestParam(value = "ord", defaultValue = "id") String ord,
-                                                              @RequestParam(value = "dir", defaultValue = "DESC") String dir) {
+    public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
+            @RequestParam(value = "pag", defaultValue = "0") Integer pag,
+            @RequestParam(value = "ord", defaultValue = "id") String ord,
+            @RequestParam(value = "dir", defaultValue = "DESC") String dir) {
+
         Response<Page<SolicitacaoDto>> response = new Response<>();
         PageRequest pageRequest = PageRequest.of(pag, this.paginacao, Sort.Direction.valueOf(dir), ord);
         Page<Solicitacao> solicitacoes = this.solicitacaoService.findAllPageable(pageRequest);
@@ -67,26 +67,35 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     }
 
     @Override
-    public ResponseEntity<Response<String>> musicMatchCity(@RequestParam @Valid MusicMatchByCityDto musicMatchByCityDto) {
+    public ResponseEntity<Response<String>> musicMatchCity(
+            @RequestParam(value = "cidade") String cidade) {
         Response<String> response = new Response<>();
 
         // TODO celsius = kelvin - 273.0;
 
-        OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(musicMatchByCityDto.getCidade(), appId).getBody();
+        OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody();
 
-        response.setData(String.format("A temperatura informada pelo servico foi: %s", (resultPorCidade.getPrincipal().getTemp() - 273.0)));
+        String teste = this.sportifyClient.getCategorias(
+                "Bearer BQB0siKl5FV55hP2mEy2YB6HAoUC7adsVswEBdqGmBPQqIwj8Axu5y2tPT7OrN1LQXP425K-x8kqA3cGCeQ",
+                "0", "50").getBody();
+
+        response.setData(String.format("A temperatura informada pelo servico foi: %s",
+                (resultPorCidade.getPrincipal().getTemp() - 273.0)));
 
         return ResponseEntity.ok(response);
     }
 
     @Override
-    public ResponseEntity<Response<String>> musicMatchCoordinates(@Valid MusicMatchCoordinatesDto musicMatchCoordinatesDto) {
+    public ResponseEntity<Response<String>> musicMatchCoordinates(@RequestParam(value = "lat") Double lat,
+                                                                  @RequestParam(value = "lon") Double lon) {
         Response<String> response = new Response<>();
 
-        OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByGeographicCoordinates(musicMatchCoordinatesDto.getLat(),
-                musicMatchCoordinatesDto.getLon(), appId).getBody();
+        OpenWeatherDto resultPorCidade =
+                this.IOpenWeatherMapClient.getByGeographicCoordinates(lat,
+                        lon, appId).getBody();
 
-        response.setData(String.format("A temperatura informada pelo servico foi: %s", (resultPorCidade.getPrincipal().getTemp() - 273.0)));
+        response.setData(String.format("A temperatura informada pelo servico foi: %s",
+                (resultPorCidade.getPrincipal().getTemp() - 273.0)));
 
         return ResponseEntity.ok(response);
     }

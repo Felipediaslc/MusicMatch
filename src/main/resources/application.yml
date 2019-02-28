@@ -39,16 +39,19 @@ paginacao:
     qtd_por_pagina: 100
 openweathermap:
   key: "44e50b6fe6b867fb08afae593925409b"
-sportify:
-  key: "BQBpo_n_r1Enz8PCYGJXZyc9JVJUPGo6T_o405UXT8lHd88stV-aIaOfXPgRsUUQBHK8co8uKovlBz4avKtEuzzaWbQTfBN8xWbrf7uSXOEH0XKILmSZw10EmAwd11K5RJ2uZS9DrA0Ep1_U8FiXLEPAKu_F97Sb3-ZrtbV2oQQ9gjqOdpw"
-#  ribbon:
-#    listOfServers: http://api.openweathermap.org
-#    ConnectTimeout: 20000
-#    ReadTimeout: 20000
-#    IsSecure: true
-#hystrix.command.default.execution:
-#  timeout.enabled: true
-#  isolation.thread.timeoutInMilliseconds: 50000
-#feign:
-#  hystrix:
-#    enabled: false
+spotify:
+  client:
+    clientId: f940676f484b42bca8218b4c0541048b
+    clientSecret: 2e7cae388e2a47b5a9ffa8c228ddafea
+    accessTokenUri: https://accounts.spotify.com/api/token
+    userAuthorizationUri: https://api.spotify.com
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://example.com/spotify-redirect
+security:
+  oauth2:
+    client:
+      client-id: acme
+      client-secret: acmesecret
+      scope: read,write
+      auto-approve-scopes: '.*'

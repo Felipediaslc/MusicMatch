@@ -1,0 +1,887 @@
+{
+  "playlists": {
+    "href": "https://api.spotify.com/v1/browse/categories/punk/playlists?country=BR&offset=0&limit=50",
+    "items": [
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1ewVhAJ17m4"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1ewVhAJ17m4",
+        "id": "37i9dQZF1DX1ewVhAJ17m4",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/f016a49b259f944e507aa1090c2569f25d81e6a0",
+            "width": null
+          }
+        ],
+        "name": "Pop Punk's Not Dead",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MiwwMDAwMDExNDAwMDAwMTY5MTcyNzNmOTkwMDAwMDE2OGRkMGFjYmZj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1ewVhAJ17m4/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX1ewVhAJ17m4"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX0KpeLFwA3tO"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0KpeLFwA3tO",
+        "id": "37i9dQZF1DX0KpeLFwA3tO",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/de781f3f675f9da3468ac275de0f1f3ccfc9fb7c",
+            "width": null
+          }
+        ],
+        "name": "New Punk Tracks",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MDgxMTY2MCwwMDAwMDBjMDAwMDAwMTY5MTM5M2ZmYTQwMDAwMDE2OTEzMzI4Y2Qw",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0KpeLFwA3tO/tracks",
+          "total": 100
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX0KpeLFwA3tO"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXcBkxDaAQX0a"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBkxDaAQX0a",
+        "id": "37i9dQZF1DXcBkxDaAQX0a",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/046f47cc02fdcb23b7ae7c182ac2eeae06ec6f77",
+            "width": null
+          }
+        ],
+        "name": "Punk Unplugged",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MiwwMDAwMDA3YzAwMDAwMTY5MTcyZWI0M2UwMDAwMDE2NzYyZWEwMDc2",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBkxDaAQX0a/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXcBkxDaAQX0a"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXa9wYJr1oMFq"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXa9wYJr1oMFq",
+        "id": "37i9dQZF1DXa9wYJr1oMFq",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/be9be5313c07315609723f2e137f22e3bf7897dd",
+            "width": null
+          }
+        ],
+        "name": "Pop Punk Powerhouses",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0NiwwMDAwMDAzZjAwMDAwMTY4YmY0YTQyZTYwMDAwMDE2ODk4Y2I1OTYx",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXa9wYJr1oMFq/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXa9wYJr1oMFq"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX9wa6XirBPv8"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9wa6XirBPv8",
+        "id": "37i9dQZF1DX9wa6XirBPv8",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/4bcf0aff90798b737b6c21ab9489160852652910",
+            "width": null
+          }
+        ],
+        "name": "Emo Forever",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgyMSwwMDAwMDAzMjAwMDAwMTY4OTVhYzY2NDAwMDAwMDE2ODk4ZDA0YWIw",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9wa6XirBPv8/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX9wa6XirBPv8"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX3LDIBRoaCDQ"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3LDIBRoaCDQ",
+        "id": "37i9dQZF1DX3LDIBRoaCDQ",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/1ea1fe4c514a92ff9fe3f36e139c3003784c969e",
+            "width": null
+          }
+        ],
+        "name": "Classic Punk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0NiwwMDAwMDAzYTAwMDAwMTY4YmY4NzBhMmUwMDAwMDE2ODk4YzYwNDU5",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3LDIBRoaCDQ/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX3LDIBRoaCDQ"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXd6tJtr4qeot"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXd6tJtr4qeot",
+        "id": "37i9dQZF1DXd6tJtr4qeot",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/e6c6ff5dea2061ec12262dc3ff7f99455f9f8ffc",
+            "width": null
+          }
+        ],
+        "name": "Punk Essentials",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MiwwMDAwMDAyNTAwMDAwMTY3YzJmY2NkNWQwMDAwMDE2ODk4ZDhiMjA4",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXd6tJtr4qeot/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXd6tJtr4qeot"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXdKfYX5JxehQ"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdKfYX5JxehQ",
+        "id": "37i9dQZF1DXdKfYX5JxehQ",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/4d45ae42a64a4a78479fa7036b70164c1cc39f11",
+            "width": null
+          }
+        ],
+        "name": "Skate Park",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgyMywwMDAwMDAzMDAwMDAwMTY1ZmExMmNhNWEwMDAwMDE2ODkzYjMzODk0",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdKfYX5JxehQ/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXdKfYX5JxehQ"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX3MU5XUozve7"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3MU5XUozve7",
+        "id": "37i9dQZF1DX3MU5XUozve7",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/bba968c7921547b66ba9c6176fde38e17f587369",
+            "width": null
+          }
+        ],
+        "name": "Skatepark Punks",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MSwwMDAwMDA5MDAwMDAwMTY5MTcyMGRhN2UwMDAwMDE2ODk5OWU1MzRh",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3MU5XUozve7/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX3MU5XUozve7"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXasneILDRM7B"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXasneILDRM7B",
+        "id": "37i9dQZF1DXasneILDRM7B",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/485de268274a671e2991cda2b0c9f2d77296b937",
+            "width": null
+          }
+        ],
+        "name": "Pure Pop Punk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MCwwMDAwMDAzYjAwMDAwMTY4Y2RhYmVjY2YwMDAwMDE2OGNkYWI1ZTBk",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXasneILDRM7B/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXasneILDRM7B"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX0KQrbsfHQvG"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0KQrbsfHQvG",
+        "id": "37i9dQZF1DX0KQrbsfHQvG",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/fd9fc1c9998158fa055673ffb18f6ed89c7fa6ef",
+            "width": null
+          }
+        ],
+        "name": "Rise Up",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MywwMDAwMDAyOTAwMDAwMTY4NTZlOWRmN2YwMDAwMDE2ODk5OWY3ZTEz",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX0KQrbsfHQvG/tracks",
+          "total": 63
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX0KQrbsfHQvG"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX7WJ4yDmRK8R"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7WJ4yDmRK8R",
+        "id": "37i9dQZF1DX7WJ4yDmRK8R",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/15c310b963e2a9064ca8368efe84f17623ffa788",
+            "width": null
+          }
+        ],
+        "name": "The Essential Ska",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MCwwMDAwMDA0MDAwMDAwMTY4YTdhNjg4OTMwMDAwMDE2ODE2YTI4ZmVk",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX7WJ4yDmRK8R/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX7WJ4yDmRK8R"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXb1IUaS6F7Z8"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb1IUaS6F7Z8",
+        "id": "37i9dQZF1DXb1IUaS6F7Z8",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/1535a00cb40f3e6b165ff2f12cd02064368f6a0f",
+            "width": null
+          }
+        ],
+        "name": "Celtic Punk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgxMSwwMDAwMDAxODAwMDAwMTY4YTdhYTVhNmUwMDAwMDE2ODk1NGExZjZj",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb1IUaS6F7Z8/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXb1IUaS6F7Z8"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1zG0qRnyaQ3"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1zG0qRnyaQ3",
+        "id": "37i9dQZF1DX1zG0qRnyaQ3",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/0a496b2c80ef0ec0b11714842f1e9b2dbb2af7f8",
+            "width": null
+          }
+        ],
+        "name": "Political Punks",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTc4OCwwMDAwMDAyODAwMDAwMTY5MTcyYWNkOWMwMDAwMDE2ODkzZDAwYzQz",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1zG0qRnyaQ3/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX1zG0qRnyaQ3"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXaDzsRodF91I"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXaDzsRodF91I",
+        "id": "37i9dQZF1DXaDzsRodF91I",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/db4513c380bb04c67393f10b4c3d965fd9a50a36",
+            "width": null
+          }
+        ],
+        "name": "Covered In Punk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0NiwwMDAwMDA1NzAwMDAwMTY5MTcyZDFjN2IwMDAwMDE2ODk4YjZkYzM3",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXaDzsRodF91I/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXaDzsRodF91I"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX3YlUroplxjF"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3YlUroplxjF",
+        "id": "37i9dQZF1DX3YlUroplxjF",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/8f55865f98c4f1f942e7395608dbd5a400010cb2",
+            "width": null
+          }
+        ],
+        "name": "Crash Course",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTg0MSwwMDAwMDBmOTAwMDAwMTY5MTczMDQ2YmEwMDAwMDE2ODk4ZDIxZTNl",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX3YlUroplxjF/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX3YlUroplxjF"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWU0FBqUeZYeN"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWU0FBqUeZYeN",
+        "id": "37i9dQZF1DWU0FBqUeZYeN",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/f2765b4f5d0e40e700af1f725177248aae381a2d",
+            "width": null
+          }
+        ],
+        "name": "The Road to Punk Rock",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU0ODY2NzgxOSwwMDAwMDAxYjAwMDAwMTYxYjlkZTFjODQwMDAwMDE2ODkzY2I5NTZl",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWU0FBqUeZYeN/tracks",
+          "total": 125
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DWU0FBqUeZYeN"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXaGNG7NmtmZv"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXaGNG7NmtmZv",
+        "id": "37i9dQZF1DXaGNG7NmtmZv",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/c2128c2fe16a85a8a018f1238ca15bcb34c178d5",
+            "width": null
+          }
+        ],
+        "name": "Classic Hardcore",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgwNywwMDAwMDAwYTAwMDAwMTY4YmY4ZjBiNmQwMDAwMDE2ODk4ZDExOGMz",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXaGNG7NmtmZv/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXaGNG7NmtmZv"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DWZkHEX2YHpDV"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZkHEX2YHpDV",
+        "id": "37i9dQZF1DWZkHEX2YHpDV",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/b339ba3dee4413b753c8adbc1298980f07a9e9ff",
+            "width": null
+          }
+        ],
+        "name": "The Scene",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgxNSwwMDAwMDE1OTAwMDAwMTY5MTcyOGEyMjYwMDAwMDE2ODk4YjEzNzQx",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DWZkHEX2YHpDV/tracks",
+          "total": 80
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DWZkHEX2YHpDV"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1aYJMdIFYsC"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1aYJMdIFYsC",
+        "id": "37i9dQZF1DX1aYJMdIFYsC",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/2be4c7d6bba8eeca41b361da07843632a29a0c20",
+            "width": null
+          }
+        ],
+        "name": "Steampunk",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTc5NywwMDAwMDAwZjAwMDAwMTY4ZTc0M2QyZmUwMDAwMDE2ODk4ZTAyYmJh",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1aYJMdIFYsC/tracks",
+          "total": 47
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX1aYJMdIFYsC"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXb2cYklA89lm"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb2cYklA89lm",
+        "id": "37i9dQZF1DXb2cYklA89lm",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/384aaaef7bf278b19ef05ede08274d560dd3d475",
+            "width": null
+          }
+        ],
+        "name": "Hot Rods & Horror Shows",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgwNywwMDAwMDAxOTAwMDAwMTY5MTcyYjVmOWIwMDAwMDE2ODk4Y2I3M2Yy",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXb2cYklA89lm/tracks",
+          "total": 44
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXb2cYklA89lm"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX98f0uoU1Pcs"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX98f0uoU1Pcs",
+        "id": "37i9dQZF1DX98f0uoU1Pcs",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/ae358304e217d9a1352f0c49975f026397bf7ebb",
+            "width": null
+          }
+        ],
+        "name": "Garage Jams",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgyMywwMDAwMDA2MTAwMDAwMTY5MjZmYzNiZWYwMDAwMDE2OTI2ZmMxYjRl",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX98f0uoU1Pcs/tracks",
+          "total": 75
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX98f0uoU1Pcs"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX1fmyMdW2PaL"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1fmyMdW2PaL",
+        "id": "37i9dQZF1DX1fmyMdW2PaL",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/7cf8dec4c5b0a6174b328167682232a324214871",
+            "width": null
+          }
+        ],
+        "name": "Complete Chaos",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgxNywwMDAwMDA3ZDAwMDAwMTY5MTcyOTkwYWUwMDAwMDE2ODk4YmQ3YzUx",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX1fmyMdW2PaL/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX1fmyMdW2PaL"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DX9Mqxt6NLTDY"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9Mqxt6NLTDY",
+        "id": "37i9dQZF1DX9Mqxt6NLTDY",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/e7a9b8086746efc6aa06a6c27fb4cb41e4d5962e",
+            "width": null
+          }
+        ],
+        "name": "All Things Post",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgxOSwwMDAwMDAzYzAwMDAwMTY4ZjMxYTk0NDEwMDAwMDE2NzNmMGRiNDQ5",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DX9Mqxt6NLTDY/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DX9Mqxt6NLTDY"
+      },
+      {
+        "collaborative": false,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/playlist/37i9dQZF1DXdJa941ExayM"
+        },
+        "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdJa941ExayM",
+        "id": "37i9dQZF1DXdJa941ExayM",
+        "images": [
+          {
+            "height": null,
+            "url": "https://pl.scdn.co/images/pl/default/317f27b4ed15c2a075fa98cb3877a81237f8eb89",
+            "width": null
+          }
+        ],
+        "name": "Punk Unleashed",
+        "owner": {
+          "display_name": "Spotify",
+          "external_urls": {
+            "spotify": "https://open.spotify.com/user/spotify"
+          },
+          "href": "https://api.spotify.com/v1/users/spotify",
+          "id": "spotify",
+          "type": "user",
+          "uri": "spotify:user:spotify"
+        },
+        "primary_color": null,
+        "public": null,
+        "snapshot_id": "MTU1MTMyNTgzNCwwMDAwMDBjOTAwMDAwMTY5MmI4MzNkYTAwMDAwMDE2ODVmMWM4ZjI1",
+        "tracks": {
+          "href": "https://api.spotify.com/v1/playlists/37i9dQZF1DXdJa941ExayM/tracks",
+          "total": 50
+        },
+        "type": "playlist",
+        "uri": "spotify:user:spotify:playlist:37i9dQZF1DXdJa941ExayM"
+      }
+    ],
+    "limit": 50,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 25
+  }
+}
