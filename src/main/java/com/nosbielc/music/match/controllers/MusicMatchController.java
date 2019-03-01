@@ -2,11 +2,13 @@ package com.nosbielc.music.match.controllers;
 
 import com.nosbielc.music.match.client.IOpenWeatherMapClient;
 import com.nosbielc.music.match.client.ISpotifyClient;
+import com.nosbielc.music.match.client.ISpotifyOauth;
 import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
 import com.nosbielc.music.match.dtos.OpenWeatherDto;
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
 import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
+import com.nosbielc.music.match.dtos.SpotifyOauthDto;
 import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.ParametroSolicitacaoEnum;
 import com.nosbielc.music.match.response.Response;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import static feign.Util.ISO_8859_1;
 
 import java.util.List;
 
@@ -41,6 +44,9 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     private IOpenWeatherMapClient IOpenWeatherMapClient;
 
     @Autowired
+    private ISpotifyOauth spotifyOauth;
+
+    @Autowired
     private ISpotifyClient sportifyClient;
 
     @Value("${paginacao.qtd_por_pagina}")
@@ -48,6 +54,12 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
 
     @Value("${openweathermap.key}")
     private String appId;
+
+    @Value("${spotify.clientId}")
+    private String userName;
+
+    @Value("${spotify.clientSecret}")
+    private String password;
 
     @Override
     public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
@@ -76,8 +88,12 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
 
         OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody();
 
+        String PreKey = "Basic " + base64Encode((userName + ":" + password).getBytes(ISO_8859_1));
+
+        SpotifyOauthDto spotifyOauthDto = spotifyOauth.getToken(PreKey).getBody();
+
         SpotifyCategoriasDto spotifyCategoriasDto = this.sportifyClient.getCategorias(
-                "Bearer BQB0siKl5FV55hP2mEy2YB6HAoUC7adsVswEBdqGmBPQqIwj8Axu5y2tPT7OrN1LQXP425K-x8kqA3cGCeQ",
+                "Bearer " + spotifyOauthDto.getAccess_token(),
                 "0", "50").getBody();
 
         response.setData(String.format("A temperatura informada pelo servico foi: %s",
