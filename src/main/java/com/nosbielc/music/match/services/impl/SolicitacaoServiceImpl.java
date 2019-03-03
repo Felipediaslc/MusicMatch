@@ -16,7 +16,7 @@ import java.util.Optional;
 @Service
 public class SolicitacaoServiceImpl implements ISolicitacaoService {
 
-    private static final Logger log = LoggerFactory.getLogger(Solicitacao.class);
+    private static final Logger log = LoggerFactory.getLogger(SolicitacaoServiceImpl.class);
 
     @Autowired
     private ISolicitacaoRepository solicitacaoRepository;

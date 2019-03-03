@@ -17,7 +17,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Service
-@FeignClient(name = "oauth", url = "https://accounts.spotify.com")
+@FeignClient(name = "oauthSpotify", url = "https://accounts.spotify.com")
 public interface ISpotifyOauth {
 
     @RequestMapping(method = POST, value = "/api/token?grant_type=client_credentials",

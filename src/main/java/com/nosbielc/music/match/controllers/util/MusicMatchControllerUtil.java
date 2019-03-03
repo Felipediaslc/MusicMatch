@@ -17,8 +17,6 @@ public class MusicMatchControllerUtil {
         return solicitacaoDto;
     }
 
-    protected String base64Encode(byte[] bytes) {
-        return Base64.encode(bytes);
-    }
+
 
 }

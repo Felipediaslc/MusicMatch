@@ -88,7 +88,7 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
 
         OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody();
 
-        String PreKey = "Basic " + base64Encode((userName + ":" + password).getBytes(ISO_8859_1));
+        String PreKey = "Basic ";
 
         SpotifyOauthDto spotifyOauthDto = spotifyOauth.getToken(PreKey).getBody();
 
