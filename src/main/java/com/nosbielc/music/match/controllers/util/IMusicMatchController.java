@@ -1,12 +1,15 @@
 package com.nosbielc.music.match.controllers.util;
 
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
+import com.nosbielc.music.match.dtos.TrackDto;
 import com.nosbielc.music.match.response.Response;
 import io.swagger.annotations.*;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 public interface IMusicMatchController {
 
@@ -30,7 +33,7 @@ public interface IMusicMatchController {
             notes = "Lista as faixas baseado em configuração de temperatura/categoria musical.")
     @ApiParam()
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", responseContainer = "List", response = SolicitacaoDto.class),
+            @ApiResponse(code = 200, message = "Success", responseContainer = "List", response = TrackDto.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 404, message = "Not Found"),
@@ -38,7 +41,7 @@ public interface IMusicMatchController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "cidade", value = "Cidade a ser pesquisada como base", required = true,
                     dataType = "string", paramType = "query")})
-    ResponseEntity<Response<String>> musicMatchCity(
+    ResponseEntity<Response<List<TrackDto>>> musicMatchCity(
             @ApiParam(value = "Cidade a ser pesquisada como base", required = true)
             @RequestParam(value = "cidade") String cidade);
 
@@ -47,7 +50,7 @@ public interface IMusicMatchController {
             nickname = "ListFaixas",
             notes = "Lista as faixas baseado em configuração de temperatura/categoria musical.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", responseContainer = "List", response = SolicitacaoDto.class),
+            @ApiResponse(code = 200, message = "Success", responseContainer = "List", response = TrackDto.class),
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 403, message = "Forbidden"),
             @ApiResponse(code = 404, message = "Not Found"),
@@ -57,7 +60,7 @@ public interface IMusicMatchController {
                     dataType = "double", paramType = "query"),
             @ApiImplicitParam(name = "lon", value = "Longitude do local.", required = true,
                     dataType = "double", paramType = "query")})
-    ResponseEntity<Response<String>> musicMatchCoordinates(
+    ResponseEntity<Response<List<TrackDto>>> musicMatchCoordinates(
             @ApiParam(value = "Latitude do local.", required = true) @RequestParam(value = "lat") Double lat,
             @ApiParam(value = "Longitude do local.", required = true) @RequestParam(value = "lon") Double lon);
 

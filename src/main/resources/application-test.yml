@@ -1,14 +1,14 @@
 server:
   port: 9000
 spring:
-  profiles:
-    active: dev
+  flyway:
+    enabled: false
   application:
     name: banco-central-service
   datasource:
     hikari:
       maximum-pool-size: 25
-    url: jdbc:h2:file:./musicMatch-app;DB_CLOSE_ON_EXIT=TRUE
+    url: jdbc:h2:men:musicMatch-app;DB_CLOSE_DELAY=-1
     platform: h2
     username: musicMatch
     password: musicMatch
@@ -16,7 +16,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true

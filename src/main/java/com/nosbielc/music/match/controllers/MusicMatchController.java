@@ -3,12 +3,10 @@ package com.nosbielc.music.match.controllers;
 import com.nosbielc.music.match.client.IOpenWeatherMapClient;
 import com.nosbielc.music.match.client.ISpotifyClient;
 import com.nosbielc.music.match.client.ISpotifyOauth;
+import com.nosbielc.music.match.components.NegocioMusicMatch;
 import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
-import com.nosbielc.music.match.dtos.OpenWeatherDto;
-import com.nosbielc.music.match.dtos.SolicitacaoDto;
-import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
-import com.nosbielc.music.match.dtos.SpotifyOauthDto;
+import com.nosbielc.music.match.dtos.*;
 import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.ParametroSolicitacaoEnum;
 import com.nosbielc.music.match.response.Response;
@@ -29,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static feign.Util.ISO_8859_1;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/musicMatch")
@@ -41,25 +40,10 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     private ISolicitacaoService solicitacaoService;
 
     @Autowired
-    private IOpenWeatherMapClient IOpenWeatherMapClient;
-
-    @Autowired
-    private ISpotifyOauth spotifyOauth;
-
-    @Autowired
-    private ISpotifyClient sportifyClient;
+    private NegocioMusicMatch negocioMusicMatch;
 
     @Value("${paginacao.qtd_por_pagina}")
     private int paginacao;
-
-    @Value("${openweathermap.key}")
-    private String appId;
-
-    @Value("${spotify.clientId}")
-    private String userName;
-
-    @Value("${spotify.clientSecret}")
-    private String password;
 
     @Override
     public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
@@ -80,41 +64,16 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     }
 
     @Override
-    public ResponseEntity<Response<String>> musicMatchCity(
+    public ResponseEntity<Response<List<TrackDto>>> musicMatchCity(
             @RequestParam(value = "cidade") String cidade) {
-        Response<String> response = new Response<>();
-
-        // TODO celsius = kelvin - 273.0;
-
-        OpenWeatherDto resultPorCidade = this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody();
-
-        String PreKey = "Basic ";
-
-        SpotifyOauthDto spotifyOauthDto = spotifyOauth.getToken(PreKey).getBody();
-
-        SpotifyCategoriasDto spotifyCategoriasDto = this.sportifyClient.getCategorias(
-                "Bearer " + spotifyOauthDto.getAccess_token(),
-                "0", "50").getBody();
-
-        response.setData(String.format("A temperatura informada pelo servico foi: %s",
-                (resultPorCidade.getPrincipal().getTemp() - 273.0)));
-
-        return ResponseEntity.ok(response);
+        Response<List<TrackDto>> response = new Response<>();
+        return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch(cidade, 0.00, 0.00));
     }
 
     @Override
-    public ResponseEntity<Response<String>> musicMatchCoordinates(@RequestParam(value = "lat") Double lat,
+    public ResponseEntity<Response<List<TrackDto>>> musicMatchCoordinates(@RequestParam(value = "lat") Double lat,
                                                                   @RequestParam(value = "lon") Double lon) {
-        Response<String> response = new Response<>();
-
-        OpenWeatherDto resultPorCidade =
-                this.IOpenWeatherMapClient.getByGeographicCoordinates(lat,
-                        lon, appId).getBody();
-
-        response.setData(String.format("A temperatura informada pelo servico foi: %s",
-                (resultPorCidade.getPrincipal().getTemp() - 273.0)));
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch("", lat, lon));
     }
 
     @Deprecated

@@ -35,7 +35,6 @@ public interface ISpotifyClient {
             produces = "application/json", consumes = "application/json")
     ResponseEntity<SpotifyTracksDto> getTracksByPlayList(@RequestHeader(value = "Authorization") String token,
                                                         @PathParam(value = "idPlayList") String idPlayList,
-                                                        @RequestParam(value = "country") String country,
                                                         @RequestParam(value = "limit") String limit);
 
 }

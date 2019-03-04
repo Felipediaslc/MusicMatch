@@ -1,5 +1,7 @@
 package com.nosbielc.music.match.utils;
 
+import com.nosbielc.music.match.dtos.SpotifyOauthDto;
+
 import static feign.Util.ISO_8859_1;
 
 public abstract class Utils {
@@ -10,6 +12,14 @@ public abstract class Utils {
 
     protected static  String base64Encode(byte[] bytes) {
         return Base64.encode(bytes);
+    }
+
+    public static Double convertKelvinToCelsius(Double tempKelvin) {
+        return tempKelvin - 273.0;
+    }
+
+    public static String geraBearerAtenticacao(SpotifyOauthDto spotifyOauthDto) {
+        return String.format("Bearer %s", spotifyOauthDto.getAccess_token());
     }
 
 }
