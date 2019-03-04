@@ -13,7 +13,7 @@ import java.util.TimeZone;
 
 @SpringBootApplication
 @EnableFeignClients
-@EnableScheduling
+//@EnableScheduling
 public class MusicMatchApplication {
 
     @Autowired
@@ -26,7 +26,7 @@ public class MusicMatchApplication {
     @PostConstruct
     void onStartup() {
         TimeZone.setDefault(TimeZone.getTimeZone(Constants.TIME_ZONE));
-        schedulerCargaCategoria.runSchecullerCargaCategorias();
+        //schedulerCargaCategoria.runSchecullerCargaCategorias();
     }
 
 }

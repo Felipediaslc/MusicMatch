@@ -11,6 +11,7 @@ import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.ParametroSolicitacaoEnum;
 import com.nosbielc.music.match.response.Response;
 import com.nosbielc.music.match.services.ISolicitacaoService;
+import com.nosbielc.music.match.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,8 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     public ResponseEntity<String> init(@RequestParam MultiValueMap<ParametroSolicitacaoEnum, String> params) {
 
         System.out.println(params);
+
+       this.negocioMusicMatch.teste();
 
         return ResponseEntity.ok("");
     }

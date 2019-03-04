@@ -13,13 +13,15 @@ public interface INegocioMusicMatch {
 
     Optional<OpenWeatherDto> buscarTemperaturaDaCidadePorCoordenadas(Double lat, Double lon);
 
-    Optional<MusicMatch> buscarMusicMatchPorTemperatura(Double temperatura);
+    Optional<MusicMatch> buscarMusicMatchPorTemperatura(Integer temperatura);
 
     Optional<SpotifyOauthDto> pegaTokenSpotify();
 
     Optional<SpotifyPlayListDto> pegaPlayListDaCategoria(String token, String categoria);
 
     Optional<SpotifyTracksDto> pegaMusicasDaPlayList(String token, String idPlayList, String limit);
+
+    List<TrackDto> spotifyTracksDtoToListTrackDto(SpotifyTracksDto spotifyTracksDto);
 
     Response<List<TrackDto>> executaMusicMatch(String cidade, Double lat, Double lon);
 
