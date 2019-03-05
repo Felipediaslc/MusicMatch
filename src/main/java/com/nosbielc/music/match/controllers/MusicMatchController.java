@@ -21,10 +21,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import static feign.Util.ISO_8859_1;
 
 import java.util.List;
@@ -77,7 +75,7 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
         return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch("", lat, lon));
     }
 
-    @Deprecated
+    @GetMapping("/teste")
     public ResponseEntity<String> init(@RequestParam MultiValueMap<ParametroSolicitacaoEnum, String> params) {
 
         System.out.println(params);

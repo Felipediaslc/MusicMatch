@@ -33,6 +33,9 @@ public class Album implements Serializable {
     private String type;
     private String uri;
 
+    public Album() {
+    }
+
     public Album(String albumType, List<Artists> artists, List<String> availableMarkets, ExternalUrls externalUrls, String href, String id, String name, String releaseDate, String releaseDatePrecision, String totalTracks, String type, String uri) {
         this.albumType = albumType;
         this.artists = artists;

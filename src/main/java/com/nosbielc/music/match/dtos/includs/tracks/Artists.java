@@ -16,6 +16,8 @@ public class Artists implements Serializable {
     private String id;
     private String name;
 
+    public Artists() {
+    }
 
     public Artists(String href, String id, String name, String type, String uri, ExternalUrls externalUrls) {
         this.href = href;

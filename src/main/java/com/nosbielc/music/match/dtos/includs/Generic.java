@@ -17,6 +17,9 @@ public class Generic {
     @JsonAlias("items")
     private List<Items> items;
 
+    public Generic() {
+    }
+
     public Generic(String href, String limit, String next, String offset, String previous, String total,
                    List<Items> items) {
         this.href = href;

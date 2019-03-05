@@ -82,6 +82,9 @@ public class Items {
         this.track = track;
     }
 
+    public Items() {
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Items.class.getSimpleName() + "[", "]")

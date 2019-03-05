@@ -11,6 +11,9 @@ public class SpotifyPlayListDto implements Serializable {
     @JsonAlias("playlists")
     private PlayList playLists;
 
+    public SpotifyPlayListDto() {
+    }
+
     public SpotifyPlayListDto(PlayList playLists) {
         this.playLists = playLists;
     }

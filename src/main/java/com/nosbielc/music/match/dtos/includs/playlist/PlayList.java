@@ -11,4 +11,5 @@ public class PlayList extends Generic implements Serializable {
     public PlayList(String href, String limit, String next, String offset, String previous, String total, List<Items> items) {
         super(href, limit, next, offset, previous, total, items);
     }
+
 }

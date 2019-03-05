@@ -9,6 +9,9 @@ public class Images implements Serializable {
     private String url;
     private String width;
 
+    public Images() {
+    }
+
     public Images(String height, String url, String width) {
         this.height = height;
         this.url = url;

@@ -17,6 +17,9 @@ public class Owner implements Serializable {
     @JsonAlias("external_urls")
     private ExternalUrls externalUrls;
 
+    public Owner() {
+    }
+
     public Owner(String displayName, String href, String id, String type, String uri, ExternalUrls externalUrls) {
         this.displayName = displayName;
         this.href = href;

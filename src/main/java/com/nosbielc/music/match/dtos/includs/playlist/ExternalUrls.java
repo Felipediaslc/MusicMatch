@@ -7,6 +7,9 @@ public class ExternalUrls implements Serializable {
 
     private String spotify;
 
+    public ExternalUrls() {
+    }
+
     public ExternalUrls(String spotify) {
         this.spotify = spotify;
     }

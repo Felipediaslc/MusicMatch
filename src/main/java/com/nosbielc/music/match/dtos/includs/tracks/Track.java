@@ -46,6 +46,9 @@ public class Track implements Serializable {
 
     private Album album;
 
+    public Track() {
+    }
+
     public Track(String discNumber, String durationMs, String espisode, String explicit, String href, String id, String isLocal, String name, String popularity, String previewUrl, String track, String trackNumber, String type, String uri, List<Artists> artists, List<String> availableMarkets, ExternalUrls externalUrls, ExternalIds externalIds, Album album) {
         this.discNumber = discNumber;
         this.durationMs = durationMs;

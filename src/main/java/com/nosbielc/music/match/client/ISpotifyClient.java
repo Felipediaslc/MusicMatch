@@ -3,10 +3,12 @@ package com.nosbielc.music.match.client;
 import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
 import com.nosbielc.music.match.dtos.SpotifyPlayListDto;
 import com.nosbielc.music.match.dtos.SpotifyTracksDto;
+import feign.Headers;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,19 +26,16 @@ public interface ISpotifyClient {
                                                        @RequestParam(value = "offset") String offset,
                                                        @RequestParam(value = "limit") String limit);
 
-    @RequestMapping(method = GET, value = "/v1/browse/categories/pop/playlists?country=BR&limit=50",
-            produces = "application/json", consumes = "application/json")
+    @Headers({"Content-Type: application/json", "Accept: application/json"})
+    @RequestMapping(method = GET, value = "/v1/browse/categories/{categoria}/playlists?country=BR&limit=50",
+            produces = "application/json", consumes = "application/json", headers =
+            {"Content-Type: application/json", "Accept: application/json"})
     ResponseEntity<SpotifyPlayListDto> getPlayListByCategoria(@RequestHeader(value = "Authorization") String token,
-                                                              @Param(value = "categoria") String categoria);
+                                                              @PathVariable("categoria") String categoria);
 
     @RequestMapping(method = GET, value = "/v1/playlists/{idPlayList}/tracks?limit=100",
             produces = "application/json", consumes = "application/json")
     ResponseEntity<SpotifyTracksDto> getTracksByPlayList(@RequestHeader(value = "Authorization") String token,
-                                                        @Param(value = "idPlayList") String idPlayList);
-
-    @RequestMapping(method = GET, value = "/v1/browse/categories/pop/playlists?country=BR&limit=50",
-            produces = "application/json", consumes = "application/json")
-    ResponseEntity getTeste(@RequestHeader(value = "Authorization") String token,
-                                                              @Param(value = "categoria") String categoria);
+                                                        @PathVariable("idPlayList") String idPlayList);
 
 }

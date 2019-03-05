@@ -7,6 +7,9 @@ public class VideoThumbnail implements Serializable {
 
     private String url;
 
+    public VideoThumbnail() {
+    }
+
     public VideoThumbnail(String url) {
         this.url = url;
     }

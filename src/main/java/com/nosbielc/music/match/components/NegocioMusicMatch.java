@@ -48,7 +48,7 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
     @Override
     public Optional<OpenWeatherDto> buscarTemperaturaDaCidade(String cidade) {
         if (cidade != null) {
-            return Optional.ofNullable(this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody());
+            return Optional.of(this.IOpenWeatherMapClient.getByCityName(cidade, appId).getBody());
         }
         return Optional.empty();
     }
@@ -56,30 +56,30 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
     @Override
     public Optional<OpenWeatherDto> buscarTemperaturaDaCidadePorCoordenadas(Double lat,
             Double lon){
-            return Optional.ofNullable(
+            return Optional.of(
                     this.IOpenWeatherMapClient.getByGeographicCoordinates(lat, lon, appId).getBody());
     }
 
     @Override
     public Optional<MusicMatch> buscarMusicMatchPorTemperatura(Integer temperatura) {
-        return Optional.ofNullable(this.musicMatchRepository.findByTemperatura(String.valueOf(temperatura)));
+        return Optional.of(this.musicMatchRepository.findByTemperatura(String.valueOf(temperatura)));
     }
 
     @Override
     public Optional<SpotifyOauthDto> pegaTokenSpotify() {
-        return Optional.ofNullable(this.spotifyOauth.getToken(Utils.geraBaseAtenticacao(
+        return Optional.of(this.spotifyOauth.getToken(Utils.geraBaseAtenticacao(
                 userName, password)).getBody());
     }
 
     @Override
     public Optional<SpotifyPlayListDto> pegaPlayListDaCategoria(String token, String categoria) {
-        return Optional.ofNullable(
+        return Optional.of(
                 this.sportifyClient.getPlayListByCategoria(token, categoria).getBody());
     }
 
     @Override
     public Optional<SpotifyTracksDto> pegaMusicasDaPlayList(String token, String idPlayList, String limit) {
-        return Optional.ofNullable(
+        return Optional.of(
                 this.sportifyClient.getTracksByPlayList(token,
                         idPlayList).getBody());
     }
@@ -91,20 +91,22 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
         spotifyTracksDto.getItems().stream().forEach(items -> {
 
             Track track = items.getTrack();
-            trackDtos.add(new TrackDto(track.getDiscNumber(),
-                    track.getDurationMs(),
-                    track.getEspisode(),
-                    track.getExplicit(),
-                    track.getHref(),
-                    track.getId(),
-                    track.getIsLocal(),
-                    track.getName(),
-                    track.getPopularity(),
-                    track.getPreviewUrl(),
-                    track.getTrack(),
-                    track.getTrackNumber(),
-                    track.getType(),
-                    track.getUri()));
+
+            if (track.getPreviewUrl() != null)
+                trackDtos.add(new TrackDto(track.getDiscNumber(),
+                        track.getDurationMs(),
+                        track.getEspisode(),
+                        track.getExplicit(),
+                        track.getHref(),
+                        track.getId(),
+                        track.getIsLocal(),
+                        track.getName(),
+                        track.getPopularity(),
+                        track.getPreviewUrl(),
+                        track.getTrack(),
+                        track.getTrackNumber(),
+                        track.getType(),
+                        track.getUri()));
         });
 
         return trackDtos;
@@ -175,10 +177,10 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
                 this.spotifyOauth.getToken(
                          Utils.geraBaseAtenticacao(
                                 userName, password)).getBody();
-         String token = Utils.geraBearerAtenticacao(spotifyOauthDto);
+        SpotifyPlayListDto sp = this.sportifyClient.getPlayListByCategoria(
+                Utils.geraBearerAtenticacao(spotifyOauthDto), "pop").getBody();
 
-        ResponseEntity retorno =
-                sportifyClient.getTeste(token, "");
+        System.out.println(sp);
     }
 
 

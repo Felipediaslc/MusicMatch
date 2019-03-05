@@ -8,6 +8,9 @@ public class Tracks implements Serializable {
     private String href;
     private String total;
 
+    public Tracks() {
+    }
+
     public Tracks(String href, String total) {
         this.href = href;
         this.total = total;

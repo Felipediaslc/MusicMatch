@@ -15,6 +15,9 @@ public class AddedBy implements Serializable {
     private String type;
     private String uri;
 
+    public AddedBy() {
+    }
+
     public AddedBy(ExternalUrls externalUrls, String href, String id, String type, String uri) {
         this.externalUrls = externalUrls;
         this.href = href;

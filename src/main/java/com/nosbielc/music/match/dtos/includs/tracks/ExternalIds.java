@@ -7,6 +7,9 @@ public class ExternalIds implements Serializable {
 
     private String isrc;
 
+    public ExternalIds() {
+    }
+
     public ExternalIds(String isrc) {
         this.isrc = isrc;
     }
