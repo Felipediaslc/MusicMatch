@@ -1,32 +1,18 @@
 package com.nosbielc.music.match.controllers;
 
-import com.nosbielc.music.match.client.IOpenWeatherMapClient;
-import com.nosbielc.music.match.client.ISpotifyClient;
-import com.nosbielc.music.match.client.ISpotifyOauth;
 import com.nosbielc.music.match.components.NegocioMusicMatch;
 import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
 import com.nosbielc.music.match.dtos.*;
-import com.nosbielc.music.match.entities.Solicitacao;
-import com.nosbielc.music.match.enums.ParametroSolicitacaoEnum;
 import com.nosbielc.music.match.response.Response;
-import com.nosbielc.music.match.services.ISolicitacaoService;
-import com.nosbielc.music.match.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import static feign.Util.ISO_8859_1;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/musicMatch")
