@@ -36,7 +36,7 @@ spring:
         trace: false
         web-allow-others: true
 logging:
-  file: musicMatch-service.log
+  file: musicMatch-service-test.log
 paginacao:
     qtd_por_pagina: 100
 openweathermap:

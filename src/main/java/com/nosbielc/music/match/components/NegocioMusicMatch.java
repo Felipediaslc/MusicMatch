@@ -6,12 +6,14 @@ import com.nosbielc.music.match.client.ISpotifyOauth;
 import com.nosbielc.music.match.dtos.*;
 import com.nosbielc.music.match.dtos.includs.tracks.Track;
 import com.nosbielc.music.match.entities.MusicMatch;
+import com.nosbielc.music.match.entities.Solicitacao;
+import com.nosbielc.music.match.enums.SolicitacaoStatus;
 import com.nosbielc.music.match.repositories.IMusicMatchRepository;
 import com.nosbielc.music.match.response.Response;
+import com.nosbielc.music.match.services.ISolicitacaoService;
 import com.nosbielc.music.match.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -44,6 +46,9 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
 
     @Autowired
     IMusicMatchRepository musicMatchRepository;
+
+    @Autowired
+    private ISolicitacaoService solicitacaoService;
 
     @Override
     public Optional<OpenWeatherDto> buscarTemperaturaDaCidade(String cidade) {
@@ -116,12 +121,19 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
     public Response<List<TrackDto>> executaMusicMatch(String cidade, Double lat, Double lon) {
         Response<List<TrackDto>> response = new Response<>();
         Optional<OpenWeatherDto> openWeatherDto = Optional.empty();
+        Solicitacao solicitacao = new Solicitacao();
 
         if (cidade != null && cidade != "") {
             openWeatherDto = this.buscarTemperaturaDaCidade(cidade);
+            solicitacao = new Solicitacao(cidade, SolicitacaoStatus.REQUERIDO);
+            this.solicitacaoService.persist(solicitacao);
 
         } else if (lat > 0 || lon > 0 && cidade == "") {
             openWeatherDto = this.buscarTemperaturaDaCidadePorCoordenadas(lat, lon);
+            solicitacao = new Solicitacao(
+                    String.valueOf(lat),
+                    String.valueOf(lon), SolicitacaoStatus.REQUERIDO);
+            this.solicitacaoService.persist(solicitacao);
         }
 
         if (openWeatherDto.isPresent()) {
@@ -162,11 +174,19 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
                 }
 
             } else {
-                response.addError("range do MusicMatch não cadastrado.");
+                response.addError("Range do MusicMatch não cadastrado.");
             }
 
         } else {
             response.addError("Houve um erro ao pegar temperatura do local solicitado.");
+        }
+
+        if (response.getErrors().size() > 0) {
+            solicitacao.setSolicitacaoStatus(SolicitacaoStatus.ERRO_PROCESSAMENTO);
+            this.solicitacaoService.persist(solicitacao);
+        } else {
+            solicitacao.setSolicitacaoStatus(SolicitacaoStatus.PROCESSAMENTO_CONCLUIDO);
+            this.solicitacaoService.persist(solicitacao);
         }
 
         return response;

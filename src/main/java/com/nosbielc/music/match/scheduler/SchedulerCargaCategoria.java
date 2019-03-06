@@ -15,6 +15,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Optional;
+
 @Component
 public class SchedulerCargaCategoria {
 
@@ -55,18 +59,25 @@ public class SchedulerCargaCategoria {
                         token,
                         "0", "50").getBody();
 
-                log.info(String.format("Categiroias Encontradas -> %s",
+                log.info(String.format("Categiroias Encontradas Service-> %s",
                         spotifyCategoriasDto.getCategories().getItems().size()));
+
+                Optional<List<Categoria>> categorias = this.categoriaService.findAll();
 
                 spotifyCategoriasDto.getCategories().getItems().stream().forEach(
                         item -> {
-                            try {
-                                categoriaService.persist(
-                                        new Categoria(item.getId(),
-                                                item.getName()));
-                                log.info(String.format("Sucesso ao incluir ( %s ).", item));
-                            } catch (Exception e) {
-                                log.error(String.format("Erro ao incluir ( %s ).", item));
+                            if (categorias.get().stream()
+                                    .filter(cat -> item.getId().equalsIgnoreCase(cat.getChave())).count() == 0) {
+                                try {
+                                    categoriaService.persist(
+                                            new Categoria(item.getId(),
+                                                    item.getName()));
+                                    log.info(String.format("Sucesso ao incluir ( %s ).", item));
+                                } catch (Exception e) {
+                                    log.error(String.format("Erro ao incluir ( %s ).", item));
+                                }
+                            } else {
+                                log.info(String.format("Categoria já cadastrada ( %s ).", item));
                             }
                         }
                 );

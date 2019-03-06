@@ -14,13 +14,13 @@ public class Solicitacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cidade", nullable = false)
+    @Column(name = "cidade")
     private String cidade;
 
-    @Column(name = "lat", nullable = false)
+    @Column(name = "lat")
     private String lat;
 
-    @Column(name = "lon", nullable = false)
+    @Column(name = "lon")
     private String lon;
 
     @Enumerated(EnumType.ORDINAL)
@@ -31,6 +31,8 @@ public class Solicitacao implements Serializable {
 
     public Solicitacao(String cidade, SolicitacaoStatus solicitacaoStatus) {
         this.cidade = cidade;
+        this.lat = "0";
+        this.lon = "0";
         this.solicitacaoStatus = solicitacaoStatus;
     }
 
@@ -42,6 +44,7 @@ public class Solicitacao implements Serializable {
     }
 
     public Solicitacao(String lat, String lon, SolicitacaoStatus solicitacaoStatus) {
+        this.cidade = " ";
         this.lat = lat;
         this.lon = lon;
         this.solicitacaoStatus = solicitacaoStatus;

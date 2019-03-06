@@ -4,7 +4,6 @@ import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
 import com.nosbielc.music.match.dtos.SpotifyPlayListDto;
 import com.nosbielc.music.match.dtos.SpotifyTracksDto;
 import feign.Headers;
-import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,10 +25,8 @@ public interface ISpotifyClient {
                                                        @RequestParam(value = "offset") String offset,
                                                        @RequestParam(value = "limit") String limit);
 
-    @Headers({"Content-Type: application/json", "Accept: application/json"})
     @RequestMapping(method = GET, value = "/v1/browse/categories/{categoria}/playlists?country=BR&limit=50",
-            produces = "application/json", consumes = "application/json", headers =
-            {"Content-Type: application/json", "Accept: application/json"})
+            produces = "application/json", consumes = "application/json")
     ResponseEntity<SpotifyPlayListDto> getPlayListByCategoria(@RequestHeader(value = "Authorization") String token,
                                                               @PathVariable("categoria") String categoria);
 
