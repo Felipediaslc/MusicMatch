@@ -45,4 +45,9 @@ public class SolicitacaoServiceImpl implements ISolicitacaoService {
     public Optional<List<Solicitacao>> findAll() {
         return Optional.ofNullable(this.solicitacaoRepository.findAll());
     }
+
+    @Override
+    public void update(Solicitacao solicitacao) {
+        this.solicitacaoRepository.save(solicitacao);
+    }
 }

@@ -36,36 +36,19 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     private static final Logger log = LoggerFactory.getLogger(MusicMatchController.class);
 
     @Autowired
-    private ISolicitacaoService solicitacaoService;
-
-    @Autowired
     private NegocioMusicMatch negocioMusicMatch;
-
-    @Value("${paginacao.qtd_por_pagina}")
-    private int paginacao;
 
     @Override
     public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
             @RequestParam(value = "pag", defaultValue = "0") Integer pag,
             @RequestParam(value = "ord", defaultValue = "id") String ord,
             @RequestParam(value = "dir", defaultValue = "DESC") String dir) {
-
-        Response<Page<SolicitacaoDto>> response = new Response<>();
-        PageRequest pageRequest = PageRequest.of(pag, this.paginacao, Sort.Direction.valueOf(dir), ord);
-        Page<Solicitacao> solicitacoes = this.solicitacaoService.findAllPageable(pageRequest);
-        Page<SolicitacaoDto> solicitacoesDtos = solicitacoes.map(
-                solicit -> toSolicitacaoDto(solicit)
-        );
-
-        response.setData(solicitacoesDtos);
-
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(this.negocioMusicMatch.listarSolicitacoes(pag, ord, dir));
     }
 
     @Override
     public ResponseEntity<Response<List<TrackDto>>> musicMatchCity(
             @RequestParam(value = "cidade") String cidade) {
-        Response<List<TrackDto>> response = new Response<>();
         return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch(cidade, 0.00, 0.00));
     }
 
@@ -75,14 +58,12 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
         return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch("", lat, lon));
     }
 
-    @GetMapping("/teste")
-    public ResponseEntity<String> init(@RequestParam MultiValueMap<ParametroSolicitacaoEnum, String> params) {
-
-        System.out.println(params);
-
-       this.negocioMusicMatch.teste();
-
-        return ResponseEntity.ok("");
-    }
-
+    //@GetMapping("/teste")
+    //public ResponseEntity<String> init(@RequestParam MultiValueMap<ParametroSolicitacaoEnum, String> params) {
+//
+    //    System.out.println(params);
+//
+    //    return ResponseEntity.ok("");
+    //}
+//
 }

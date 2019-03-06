@@ -8,7 +8,7 @@ spring:
   datasource:
     hikari:
       maximum-pool-size: 25
-    url: jdbc:h2:men:musicMatch-app;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:musicMatch-app;DB_CLOSE_DELAY=-1
     platform: h2
     username: musicMatch
     password: musicMatch
@@ -25,16 +25,6 @@ spring:
         type: trace
         jdbc:
           time_zone: UTC-3
-  ###
-  #   H2 Settings
-  ###
-  h2:
-    console:
-      enabled: true
-      path: /console
-      settings:
-        trace: false
-        web-allow-others: true
 logging:
   file: musicMatch-service-test.log
 paginacao:

@@ -3,7 +3,6 @@ package com.nosbielc.music.match.client;
 import com.nosbielc.music.match.dtos.SpotifyCategoriasDto;
 import com.nosbielc.music.match.dtos.SpotifyPlayListDto;
 import com.nosbielc.music.match.dtos.SpotifyTracksDto;
-import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

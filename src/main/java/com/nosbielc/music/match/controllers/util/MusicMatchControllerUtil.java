@@ -8,14 +8,7 @@ import java.util.Optional;
 
 public class MusicMatchControllerUtil {
 
-    protected SolicitacaoDto toSolicitacaoDto(Solicitacao solicitacao) {
-        SolicitacaoDto solicitacaoDto = new SolicitacaoDto();
-        solicitacaoDto.setCidade(solicitacao.getCidade());
-        solicitacaoDto.setLat(solicitacao.getLat());
-        solicitacaoDto.setLon(solicitacao.getLon());
-        solicitacaoDto.setId(Optional.ofNullable(solicitacao.getId()));
-        return solicitacaoDto;
-    }
+
 
 
 

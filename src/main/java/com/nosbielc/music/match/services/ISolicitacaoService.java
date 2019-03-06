@@ -19,4 +19,6 @@ public interface ISolicitacaoService {
 
     Optional<List<Solicitacao>> findAll();
 
+    void update(Solicitacao solicitacao);
+
 }

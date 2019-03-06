@@ -12,8 +12,13 @@ import com.nosbielc.music.match.repositories.IMusicMatchRepository;
 import com.nosbielc.music.match.response.Response;
 import com.nosbielc.music.match.services.ISolicitacaoService;
 import com.nosbielc.music.match.utils.Utils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -22,6 +27,8 @@ import java.util.Optional;
 
 @Component
 public class NegocioMusicMatch implements INegocioMusicMatch {
+
+    private static final Logger log = LoggerFactory.getLogger(NegocioMusicMatch.class);
 
     @Value("${paginacao.qtd_por_pagina}")
     private int paginacao;
@@ -125,22 +132,25 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
 
         if (cidade != null && cidade != "") {
             openWeatherDto = this.buscarTemperaturaDaCidade(cidade);
-            solicitacao = new Solicitacao(cidade, SolicitacaoStatus.REQUERIDO);
-            this.solicitacaoService.persist(solicitacao);
+            solicitacao = this.solicitacaoService
+                    .persist(new Solicitacao(cidade, SolicitacaoStatus.REQUERIDO));
 
-        } else if (lat > 0 || lon > 0 && cidade == "") {
+        } else if (lat != null || lon != null && cidade == "") {
             openWeatherDto = this.buscarTemperaturaDaCidadePorCoordenadas(lat, lon);
-            solicitacao = new Solicitacao(
-                    String.valueOf(lat),
-                    String.valueOf(lon), SolicitacaoStatus.REQUERIDO);
-            this.solicitacaoService.persist(solicitacao);
+            solicitacao = this.solicitacaoService.persist(new Solicitacao(
+                            String.valueOf(lat),
+                            String.valueOf(lon), SolicitacaoStatus.REQUERIDO));
         }
 
         if (openWeatherDto.isPresent()) {
 
+            int temperaturaCapturada = (int) Math.round(openWeatherDto.get().getPrincipal().getTemp()) - 273;
+
+            log.info(String.format("Temperatura Capturada: %s", temperaturaCapturada));
+
             Optional<MusicMatch> musicMatch =
                     this.buscarMusicMatchPorTemperatura(
-                            (int) Math.round(openWeatherDto.get().getPrincipal().getTemp()) - 273);
+                            temperaturaCapturada);
 
             if (musicMatch.isPresent()) {
 
@@ -192,16 +202,28 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
         return response;
     }
 
-    public void teste() {
-         SpotifyOauthDto spotifyOauthDto =
-                this.spotifyOauth.getToken(
-                         Utils.geraBaseAtenticacao(
-                                userName, password)).getBody();
-        SpotifyPlayListDto sp = this.sportifyClient.getPlayListByCategoria(
-                Utils.geraBearerAtenticacao(spotifyOauthDto), "pop").getBody();
-
-        System.out.println(sp);
+    @Override
+    public SolicitacaoDto parseSolicitacaoDto(Solicitacao solicitacao) {
+        SolicitacaoDto solicitacaoDto = new SolicitacaoDto();
+        solicitacaoDto.setCidade(solicitacao.getCidade());
+        solicitacaoDto.setLat(solicitacao.getLat());
+        solicitacaoDto.setLon(solicitacao.getLon());
+        solicitacaoDto.setId(Optional.ofNullable(solicitacao.getId()));
+        return solicitacaoDto;
     }
 
+    @Override
+    public Response<Page<SolicitacaoDto>> listarSolicitacoes(Integer pag, String ord, String dir) {
+        Response<Page<SolicitacaoDto>> response = new Response<>();
+        PageRequest pageRequest = PageRequest.of(pag, this.paginacao, Sort.Direction.valueOf(dir), ord);
+        Page<Solicitacao> solicitacoes = this.solicitacaoService.findAllPageable(pageRequest);
+        Page<SolicitacaoDto> solicitacoesDtos = solicitacoes.map(
+                solicit -> parseSolicitacaoDto(solicit)
+        );
+
+        response.setData(solicitacoesDtos);
+
+        return response;
+    }
 
 }
