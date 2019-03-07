@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface IMusicMatchController {
 
-    @GetMapping("/show")
+    @GetMapping
     @ApiOperation(value = "Lista as Solicitações registradas na base", nickname = "ListSolicitacoes",
             notes = "Lista as Solicitações registradas na base.")
     @ApiResponses(value = {

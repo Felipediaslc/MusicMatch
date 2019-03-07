@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/Nosbielc/MusicMatch.svg?branch=master)](https://travis-ci.org/Nosbielc/MusicMatch)
 
 # MusicMatch
-Projeto para seleção de musicas baseando-se na temperatura da localização solicitada.
+Projeto para seleção de musicas baseando-se na temperatura da cidade/Coordenadas solicitada.
 
 ### Detalhes da API RESTful MusicMatch
 A API RESTful contém as seguintes características:  

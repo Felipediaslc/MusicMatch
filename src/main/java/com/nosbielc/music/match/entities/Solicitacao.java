@@ -50,17 +50,6 @@ public class Solicitacao implements Serializable {
         this.solicitacaoStatus = solicitacaoStatus;
     }
 
-    @Override
-    public String toString() {
-        return new StringJoiner(", ", Solicitacao.class.getSimpleName() + "[", "]")
-                .add("id=" + id)
-                .add("cidade='" + cidade + "'")
-                .add("lat='" + lat + "'")
-                .add("lon='" + lon + "'")
-                .add("solicitacaoStatus=" + solicitacaoStatus)
-                .toString();
-    }
-
     public Long getId() {
         return id;
     }
