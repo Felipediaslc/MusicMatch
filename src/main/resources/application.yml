@@ -1,10 +1,12 @@
 server:
   port: 9000
+  servlet:
+    context-path: /musicMatch
 spring:
   profiles:
     active: dev
   application:
-    name: banco-central-service
+    name: music-match-service
   datasource:
     hikari:
       maximum-pool-size: 25

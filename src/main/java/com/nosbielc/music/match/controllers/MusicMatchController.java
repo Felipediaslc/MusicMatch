@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/musicMatch")
+@RequestMapping("/api/v1/match")
 @CrossOrigin(origins = "*")
 public class MusicMatchController extends MusicMatchControllerUtil implements IMusicMatchController {
 

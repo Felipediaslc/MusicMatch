@@ -4,7 +4,7 @@ spring:
   flyway:
     enabled: false
   application:
-    name: banco-central-service
+    name: music-match-service
   datasource:
     hikari:
       maximum-pool-size: 25
