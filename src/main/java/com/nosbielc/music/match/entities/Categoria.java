@@ -31,6 +31,10 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
+    public static Categoria create(String chave, String nome) {
+        return new Categoria(chave, nome);
+    }
+
     @Override
     public String toString() {
         return new StringJoiner(", ", Categoria.class.getSimpleName() + "[", "]")
