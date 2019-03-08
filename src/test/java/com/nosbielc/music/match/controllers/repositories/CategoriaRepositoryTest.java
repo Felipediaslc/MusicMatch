@@ -48,7 +48,6 @@ public class CategoriaRepositoryTest {
         }
     }
 
-    // TODO esse teste pode ser deletado depois
     @Test
     public void testVerificaTotalRegistros() {
         Assert.assertTrue((createCategorias().size() + 1 ) == this.iCategoriaRepository.count());
