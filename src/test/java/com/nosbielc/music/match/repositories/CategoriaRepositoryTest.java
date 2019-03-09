@@ -1,7 +1,6 @@
-package com.nosbielc.music.match.controllers.repositories;
+package com.nosbielc.music.match.repositories;
 
 import com.nosbielc.music.match.entities.Categoria;
-import com.nosbielc.music.match.repositories.ICategoriaRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

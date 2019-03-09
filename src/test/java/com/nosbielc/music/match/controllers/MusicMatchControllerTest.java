@@ -6,11 +6,10 @@ import com.nosbielc.music.match.components.NegocioMusicMatch;
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
 import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.SolicitacaoStatus;
-import com.nosbielc.music.match.services.ISolicitacaoService;
-import org.junit.AfterClass;
-import org.junit.Assert;
+import com.nosbielc.music.match.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -18,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -43,43 +41,55 @@ public class MusicMatchControllerTest {
     private MockMvc mvc;
 
     @MockBean
-    private ISolicitacaoService solicitacaoService;
-
-    @MockBean
     private NegocioMusicMatch negocioMusicMatch;
 
     private static final String URL_BASE = "/api/v1/match";
     private static final String NOME_CIDADE = "Recife";
     private static final Long ID_SOLICITACAO = 1L;
 
-    @AfterClass
-    public static void initBasic() {}
-
     @Test
-    public void testBasic() {
-        Assert.assertTrue(Boolean.TRUE);
-    }
+    public void testBuscarSolicticao() throws Exception {
+        Page<SolicitacaoDto> pages = new PageImpl<>(
+                new ArrayList<SolicitacaoDto>() {{
+                    add(toSolicitacaoDto());
+                }});
+        Response<Page<SolicitacaoDto>> response = new Response<>();
+        response.setData(pages);
 
-    public void testBuscarSolicticaoRecife() throws Exception {
-
-        ArrayList<Solicitacao> solicitacoes = new ArrayList<Solicitacao>(){{
-            add(getDataSolicitacao());
-        }};
-        Page<Solicitacao> pages = new PageImpl<>(solicitacoes);
-        //BDDMockito.given(this.solicitacaoService.findAllPageable(Mockito.any(PageRequest.class)))
-        //        .willReturn(pages);
-
-        Mockito.when(this.solicitacaoService.findAllPageable(Mockito.any(PageRequest.class)))
-                .thenReturn(pages);
+        BDDMockito.given(
+                this.negocioMusicMatch.listarSolicitacoes(
+                        Mockito.anyInt(), Mockito.anyString(), Mockito.anyString()))
+                .willReturn(response);
 
         mvc.perform(MockMvcRequestBuilders.get(URL_BASE)
-                .accept(MediaType.ALL))
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.content[0].id").value(ID_SOLICITACAO))
                 .andExpect(jsonPath("$.data.content[0].cidade").value(NOME_CIDADE))
                 .andExpect(jsonPath("$.data.content[0].lat").value(0))
                 .andExpect(jsonPath("$.data.content[0].lon").value(0))
+                .andExpect(jsonPath("$.errors").isEmpty());
+    }
+
+    @Test
+    public void testBuscarSemDados() throws Exception {
+        Page<SolicitacaoDto> pages = new PageImpl<>(new ArrayList<>());
+        Response<Page<SolicitacaoDto>> response = new Response<>();
+        response.setData(pages);
+
+        BDDMockito.given(
+                this.negocioMusicMatch.listarSolicitacoes(
+                        Mockito.anyInt(), Mockito.anyString(), Mockito.anyString()))
+                .willReturn(response);
+
+        mvc.perform(MockMvcRequestBuilders.get(URL_BASE)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.content").isEmpty())
                 .andExpect(jsonPath("$.errors").isEmpty());
     }
 
@@ -103,6 +113,15 @@ public class MusicMatchControllerTest {
     private String getJsonRequestBody(HashMap<String, Object> jsonBody) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(jsonBody);
+    }
+
+    private SolicitacaoDto toSolicitacaoDto() {
+        Solicitacao solicitacaoRecife =  getDataSolicitacao();
+        SolicitacaoDto solicitacaoDto = new SolicitacaoDto(Optional.ofNullable(solicitacaoRecife.getId()),
+                solicitacaoRecife.getCidade(),
+                solicitacaoRecife.getLat(),
+                solicitacaoRecife.getLon());
+        return solicitacaoDto;
     }
 
 }

@@ -89,4 +89,15 @@ public class Solicitacao implements Serializable {
     public void setSolicitacaoStatus(SolicitacaoStatus solicitacaoStatus) {
         this.solicitacaoStatus = solicitacaoStatus;
     }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Solicitacao.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("cidade='" + cidade + "'")
+                .add("lat='" + lat + "'")
+                .add("lon='" + lon + "'")
+                .add("solicitacaoStatus=" + solicitacaoStatus)
+                .toString();
+    }
 }

@@ -3,6 +3,7 @@ package com.nosbielc.music.match.response;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 public class Response<T> implements Serializable {
 
@@ -39,4 +40,11 @@ public class Response<T> implements Serializable {
         this.errors.add(error);
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Response.class.getSimpleName() + "[", "]")
+                .add("data=" + data)
+                .add("errors=" + errors)
+                .toString();
+    }
 }
