@@ -28,7 +28,7 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
     public ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
             @RequestParam(value = "pag", defaultValue = "0") Integer pag,
             @RequestParam(value = "ord", defaultValue = "id") String ord,
-            @RequestParam(value = "dir", defaultValue = "DESC") String dir) {
+            @RequestParam(value = "dir", defaultValue = "ASC") String dir) {
         return ResponseEntity.ok(this.negocioMusicMatch.listarSolicitacoes(pag, ord, dir));
     }
 

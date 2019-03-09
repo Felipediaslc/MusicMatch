@@ -50,6 +50,10 @@ public class Solicitacao implements Serializable {
         this.solicitacaoStatus = solicitacaoStatus;
     }
 
+    public static Solicitacao create(String cidade, String lat, String lon, SolicitacaoStatus solicitacaoStatus) {
+        return new Solicitacao(cidade, lat, lon, solicitacaoStatus);
+    }
+
     public Long getId() {
         return id;
     }

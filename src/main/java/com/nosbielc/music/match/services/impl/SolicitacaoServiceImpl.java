@@ -1,6 +1,7 @@
 package com.nosbielc.music.match.services.impl;
 
 import com.nosbielc.music.match.entities.Solicitacao;
+import com.nosbielc.music.match.enums.SolicitacaoStatus;
 import com.nosbielc.music.match.repositories.ISolicitacaoRepository;
 import com.nosbielc.music.match.services.ISolicitacaoService;
 import org.slf4j.Logger;
@@ -49,5 +50,10 @@ public class SolicitacaoServiceImpl implements ISolicitacaoService {
     @Override
     public void update(Solicitacao solicitacao) {
         this.solicitacaoRepository.save(solicitacao);
+    }
+
+    @Override
+    public Optional<List<Solicitacao>> findAllBySolicitacaoStatusOrderByIdAsc(SolicitacaoStatus solicitacaoStatus) {
+        return this.solicitacaoRepository.findAllBySolicitacaoStatusOrderByIdAsc(solicitacaoStatus);
     }
 }

@@ -1,6 +1,7 @@
 package com.nosbielc.music.match.services;
 
 import com.nosbielc.music.match.entities.Solicitacao;
+import com.nosbielc.music.match.enums.SolicitacaoStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -20,5 +21,7 @@ public interface ISolicitacaoService {
     Optional<List<Solicitacao>> findAll();
 
     void update(Solicitacao solicitacao);
+
+    Optional<List<Solicitacao>> findAllBySolicitacaoStatusOrderByIdAsc(SolicitacaoStatus solicitacaoStatus);
 
 }
