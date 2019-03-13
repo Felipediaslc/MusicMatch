@@ -31,8 +31,18 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
+    public Categoria(Long id, String chave, String nome) {
+        this.id = id;
+        this.chave = chave;
+        this.nome = nome;
+    }
+
     public static Categoria create(String chave, String nome) {
         return new Categoria(chave, nome);
+    }
+
+    public static Categoria create(Long id, String chave, String nome) {
+        return new Categoria(id, chave, nome);
     }
 
     @Override

@@ -30,6 +30,11 @@ public class MusicMatch implements Serializable {
     public MusicMatch() {
     }
 
+    public static MusicMatch create(Categoria categoria, String temperatura, Boolean ativo) {
+        return new MusicMatch(categoria, temperatura, ativo);
+    }
+
+
     @Override
     public String toString() {
         return new StringJoiner(", ", MusicMatch.class.getSimpleName() + "[", "]")

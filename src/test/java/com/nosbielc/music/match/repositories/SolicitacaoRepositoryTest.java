@@ -1,6 +1,5 @@
 package com.nosbielc.music.match.repositories;
 
-import com.nosbielc.music.match.entities.Categoria;
 import com.nosbielc.music.match.entities.Solicitacao;
 import com.nosbielc.music.match.enums.SolicitacaoStatus;
 import org.junit.After;
