@@ -42,7 +42,7 @@ public class MusicMatchRepositoryTest {
 
     @Test
     public void testBuscarTodos(){
-        Assert.assertTrue(this.musicMatchRepository.count() == criaMusicMatchs( categorias).size());
+        Assert.assertTrue(this.musicMatchRepository.count() == criaMusicMatchs(categorias).size());
     }
 
     List<Categoria> mockCategorias() {
