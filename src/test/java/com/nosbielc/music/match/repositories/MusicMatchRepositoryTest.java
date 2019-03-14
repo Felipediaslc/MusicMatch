@@ -26,7 +26,6 @@ public class MusicMatchRepositoryTest {
     @Autowired
     ICategoriaRepository categoriaRepository;
 
-    private static final Long CHAVE_SOLICITACAO = 1L;
     private List<Categoria> categorias;
 
     @Before
