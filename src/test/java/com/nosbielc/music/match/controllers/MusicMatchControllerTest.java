@@ -70,7 +70,7 @@ public class MusicMatchControllerTest {
                 .andExpect(jsonPath("$.data.content[0].cidade").value(NOME_CIDADE))
                 .andExpect(jsonPath("$.data.content[0].lat").value(0))
                 .andExpect(jsonPath("$.data.content[0].lon").value(0))
-                .andExpect(jsonPath("$.errors").isEmpty());
+                .andExpect(jsonPath("$.warns").isEmpty());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class MusicMatchControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.content").isEmpty())
-                .andExpect(jsonPath("$.errors").isEmpty());
+                .andExpect(jsonPath("$.warns").isEmpty());
     }
 
     private String getJsonRequestBuscarSolicticaoRecife() throws JsonProcessingException {

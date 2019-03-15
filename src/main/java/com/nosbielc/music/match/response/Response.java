@@ -8,7 +8,8 @@ import java.util.StringJoiner;
 public class Response<T> implements Serializable {
 
     private T data;
-    private List<String> errors;
+    private List<String> warns;
+    private Error error;
 
     public Response() {
     }
@@ -21,30 +22,38 @@ public class Response<T> implements Serializable {
         this.data = data;
     }
 
-    public List<String> getErrors() {
-        if (this.errors == null) {
-            this.errors = new ArrayList<String>();
+    public List<String> getWarns() {
+        if (this.warns == null) {
+            this.warns = new ArrayList<String>();
         }
-        return errors;
+        return warns;
     }
 
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
+    public void setWarns(List<String> errors) {
+        this.warns = errors;
     }
 
-    public void addError(String error) {
-        if (this.errors == null) {
-            this.errors = new ArrayList<String>();
+    public void addWarns(String error) {
+        if (this.warns == null) {
+            this.warns = new ArrayList<String>();
         }
 
-        this.errors.add(error);
+        this.warns.add(error);
+    }
+
+    public Error getError() {
+        return error;
+    }
+
+    public void setError(Error error) {
+        this.error = error;
     }
 
     @Override
     public String toString() {
         return new StringJoiner(", ", Response.class.getSimpleName() + "[", "]")
                 .add("data=" + data)
-                .add("errors=" + errors)
+                .add("warns=" + warns)
                 .toString();
     }
 }

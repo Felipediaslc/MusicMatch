@@ -173,26 +173,26 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
                         if (spotifyTracksDto.isPresent()) {
                             response.setData(this.spotifyTracksDtoToListTrackDto(spotifyTracksDto.get()));
                         } else {
-                            response.addError("Serviço do Spotity com problemas (Tracks).");
+                            response.addWarns("Serviço do Spotity com problemas (Tracks).");
                         }
 
                     } else {
-                        response.addError("Serviço do Spotity com problemas (PlayList).");
+                        response.addWarns("Serviço do Spotity com problemas (PlayList).");
                     }
 
                 } else {
-                    response.addError("Serviço do Spotity com problemas (Oauth).");
+                    response.addWarns("Serviço do Spotity com problemas (Oauth).");
                 }
 
             } else {
-                response.addError("Range do MusicMatch não cadastrado.");
+                response.addWarns("Range do MusicMatch não cadastrado.");
             }
 
         } else {
-            response.addError("Houve um erro ao pegar temperatura do local solicitado.");
+            response.addWarns("Houve um erro ao pegar temperatura do local solicitado.");
         }
 
-        if (response.getErrors().size() > 0) {
+        if (response.getWarns().size() > 0) {
             solicitacao.setSolicitacaoStatus(SolicitacaoStatus.ERRO_PROCESSAMENTO);
             this.solicitacaoService.persist(solicitacao);
         } else {
