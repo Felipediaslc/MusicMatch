@@ -7,6 +7,7 @@ import com.nosbielc.music.match.services.ICategoriaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
     }
 
     @Override
+    @Cacheable
     public Optional<List<Categoria>> findAll() {
         return Optional.ofNullable(this.categoriaRepository.findAll());
     }

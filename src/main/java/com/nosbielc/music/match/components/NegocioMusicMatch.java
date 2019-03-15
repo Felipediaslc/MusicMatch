@@ -100,11 +100,12 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
     public List<TrackDto> spotifyTracksDtoToListTrackDto(SpotifyTracksDto spotifyTracksDto) {
         List<TrackDto> trackDtos = new ArrayList<>();
 
-        spotifyTracksDto.getItems().stream().forEach(items -> {
+        spotifyTracksDto.getItems().stream()
+                .filter(pred -> pred.getTrack() != null
+                        && pred.getTrack().getPreviewUrl() != null)
+                .forEach(items -> {
 
             Track track = items.getTrack();
-
-            if (track.getPreviewUrl() != null)
                 trackDtos.add(new TrackDto(track.getDiscNumber(),
                         track.getDurationMs(),
                         track.getEspisode(),

@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Configuration;
  * @project music-match
  */
 @Configuration
-@ComponentScan("com.nosbielc.music.match.controllers")
+@ComponentScan({"com.nosbielc.music.match.controllers"})
 public class Configurations {
 }

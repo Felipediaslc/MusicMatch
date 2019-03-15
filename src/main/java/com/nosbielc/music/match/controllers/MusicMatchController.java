@@ -3,14 +3,18 @@ package com.nosbielc.music.match.controllers;
 import com.nosbielc.music.match.components.NegocioMusicMatch;
 import com.nosbielc.music.match.controllers.util.IMusicMatchController;
 import com.nosbielc.music.match.controllers.util.MusicMatchControllerUtil;
-import com.nosbielc.music.match.dtos.*;
+import com.nosbielc.music.match.dtos.SolicitacaoDto;
+import com.nosbielc.music.match.dtos.TrackDto;
 import com.nosbielc.music.match.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -19,7 +23,7 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class MusicMatchController extends MusicMatchControllerUtil implements IMusicMatchController {
 
-    private static final Logger log = LoggerFactory.getLogger(MusicMatchController.class);
+    public static final Logger log = LoggerFactory.getLogger(MusicMatchController.class);
 
     @Autowired
     private NegocioMusicMatch negocioMusicMatch;
@@ -40,16 +44,8 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
 
     @Override
     public ResponseEntity<Response<List<TrackDto>>> musicMatchCoordinates(@RequestParam(value = "lat") Double lat,
-                                                                  @RequestParam(value = "lon") Double lon) {
+                                                                          @RequestParam(value = "lon") Double lon) {
         return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch("", lat, lon));
     }
 
-    //@GetMapping("/teste")
-    //public ResponseEntity<String> init(@RequestParam MultiValueMap<ParametroSolicitacaoEnum, String> params) {
-//
-    //    System.out.println(params);
-//
-    //    return ResponseEntity.ok("");
-    //}
-//
 }

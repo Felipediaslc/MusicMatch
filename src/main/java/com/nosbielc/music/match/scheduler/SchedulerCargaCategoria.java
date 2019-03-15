@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,7 @@ public class SchedulerCargaCategoria {
     @Value("${spotify.clientSecret}")
     private String password;
 
+    @CachePut
     @Scheduled(cron = "0 0 23 * * *", zone = Constants.TIME_ZONE)
     public void runSchecullerCargaCategorias() {
         try {
@@ -63,7 +65,7 @@ public class SchedulerCargaCategoria {
 
                 Optional<List<Categoria>> categorias = this.categoriaService.findAll();
 
-                spotifyCategoriasDto.getCategories().getItems().stream().forEach(
+                spotifyCategoriasDto.getCategories().getItems().forEach(
                         item -> {
                             if (categorias.get().stream()
                                     .filter(cat -> item.getId().equalsIgnoreCase(cat.getChave())).count() == 0) {
