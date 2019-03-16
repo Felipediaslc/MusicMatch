@@ -5,6 +5,7 @@ import com.nosbielc.music.match.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,18 +15,23 @@ import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 
+import javax.validation.ConstraintViolationException;
+
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 @Slf4j
-public class ExceptionHandler extends ResponseEntityExceptionHandler {
+public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(
@@ -62,20 +68,20 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
         return buildResponseEntity(error);
     }
 
-//    /**
-//     * Handles javax.validation.ConstraintViolationException. Thrown when @Validated fails.
-//     *
-//     * @param ex the ConstraintViolationException
-//     * @return the ApiError object
-//     */
-//    @ExceptionHandler(ConstraintViolationException.class)
-//    protected ResponseEntity<Object> handleConstraintViolation(
-//            javax.validation.ConstraintViolationException ex) {
-//        Error error = new Error(BAD_REQUEST);
-//        error.setMessage("Validation error");
-//        error.addValidationErrors(ex.getConstraintViolations());
-//        return buildResponseEntity(error);
-//    }
+    /**
+     * Handles javax.validation.ConstraintViolationException. Thrown when @Validated fails.
+     *
+     * @param ex the ConstraintViolationException
+     * @return the ApiError object
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    protected ResponseEntity<Object> handleConstraintViolation(
+            javax.validation.ConstraintViolationException ex) {
+        Error error = new Error(BAD_REQUEST);
+        error.setMessage("Validation error");
+        error.addValidationErrors(ex.getConstraintViolations());
+        return buildResponseEntity(error);
+    }
 
 //    /**
 //     * Handles EntityNotFoundException. Created to encapsulate errors with more detail than javax.persistence.EntityNotFoundException.
@@ -148,36 +154,46 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
 //        return buildResponseEntity(new Error(NOT_FOUND, ex));
 //    }
 
-//    /**
-//     * Handle DataIntegrityViolationException, inspects the cause for different DB causes.
-//     *
-//     * @param ex the DataIntegrityViolationException
-//     * @return the ApiError object
-//     */
-//    @ExceptionHandler(DataIntegrityViolationException.class)
-//    protected ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException ex,
-//                                                                  WebRequest request) {
-//        if (ex.getCause() instanceof ConstraintViolationException) {
-//            return buildResponseEntity(new Error(HttpStatus.CONFLICT, "Database error", ex.getCause()));
-//        }
-//        return buildResponseEntity(new Error(HttpStatus.INTERNAL_SERVER_ERROR, ex));
-//    }
+    /**
+     * Handle DataIntegrityViolationException, inspects the cause for different DB causes.
+     *
+     * @param ex the DataIntegrityViolationException
+     * @return the ApiError object
+     */
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    protected ResponseEntity<Object> handleDataIntegrityViolation(DataIntegrityViolationException ex,
+                                                                  WebRequest request) {
+        if (ex.getCause() instanceof ConstraintViolationException) {
+            return buildResponseEntity(new Error(HttpStatus.CONFLICT, "Database error", ex.getCause()));
+        }
+        return buildResponseEntity(new Error(HttpStatus.INTERNAL_SERVER_ERROR, ex));
+    }
 
-//    /**
-//     * Handle Exception, handle generic Exception.class
-//     *
-//     * @param ex the Exception
-//     * @return the ApiError object
-//     */
-//    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-//    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex,
-//                                                                      WebRequest request) {
-//        Error error = new Error(BAD_REQUEST);
-//        error.setMessage(String.format("The parameter '%s' of value '%s' could not be converted to type '%s'",
-//                ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName()));
-//        error.setDebugMessage(ex.getMessage());
-//        return buildResponseEntity(error);
-//    }
+    /**
+     * Handle Exception, handle generic Exception.class
+     *
+     * @param ex the Exception
+     * @return the ApiError object
+     */
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    protected ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex,
+                                                                      WebRequest request) {
+        Error error = new Error(BAD_REQUEST);
+        error.setMessage(String.format("The parameter '%s' of value '%s' could not be converted to type '%s'",
+                ex.getName(), ex.getValue(), ex.getRequiredType().getSimpleName()));
+        error.setDebugMessage(ex.getMessage());
+        return buildResponseEntity(error);
+    }
+
+    /**
+     *
+     * @param ex
+     * @return
+     */
+    @ExceptionHandler(ListarException.class)
+    protected ResponseEntity<Object> handleListar(ListarException ex) {
+        return buildResponseEntity(new Error(NOT_FOUND, ex));
+    }
 
     private ResponseEntity<Object> buildResponseEntity(Error error) {
         return new ResponseEntity<>(new Response() {{

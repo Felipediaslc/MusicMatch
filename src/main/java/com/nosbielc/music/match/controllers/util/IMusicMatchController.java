@@ -2,6 +2,7 @@ package com.nosbielc.music.match.controllers.util;
 
 import com.nosbielc.music.match.dtos.SolicitacaoDto;
 import com.nosbielc.music.match.dtos.TrackDto;
+import com.nosbielc.music.match.exceptions.ListarException;
 import com.nosbielc.music.match.response.Response;
 import io.swagger.annotations.*;
 import org.springframework.data.domain.Page;
@@ -25,7 +26,7 @@ public interface IMusicMatchController {
     ResponseEntity<Response<Page<SolicitacaoDto>>> listar(
             @RequestParam(value = "pag", defaultValue = "0") Integer pag,
             @RequestParam(value = "ord", defaultValue = "id") String ord,
-            @RequestParam(value = "dir", defaultValue = "DESC") String dir);
+            @RequestParam(value = "dir", defaultValue = "DESC") String dir) throws ListarException;
 
     @GetMapping("/city")
     @ApiOperation(value = "Lista as faixas baseado em configuração de temperatura/categoria musical",
