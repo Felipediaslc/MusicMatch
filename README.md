@@ -4,7 +4,8 @@
 Projeto para seleção de musicas baseando-se na temperatura da cidade/Coordenadas solicitada.
 
 ### Detalhes da API RESTful MusicMatch
-A API RESTful contém as seguintes características:  
+
+#####A API RESTful contém as seguintes características:  
 * Projeto criado com Spring Boot e Java 8
 * Banco de dados H2 com JPA e Spring Data JPA
 * Migração de banco de dados com Flyway
@@ -21,3 +22,10 @@ Acesse os endpoints através da url http://localhost:9000/musicMatch
 Acesse o Swagger através da url http://localhost:9000/musicMatch/swagger-ui.html#/
 Acesse o Console HSQLDB http://localhost:9000/musicMatch/console
 ```
+
+### Pendências no Projeto
+* CommandLineRunner para carga de categorias
+* Receber paramatros das chaves spotfy e openweathermap
+* Realizar teste com o cache para evitar multiplas requisições com o mesmo proposito
+* Documentar metodos
+* Implementar mais testes
