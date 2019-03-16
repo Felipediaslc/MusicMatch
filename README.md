@@ -24,8 +24,5 @@ Acesse o Console HSQLDB http://localhost:9000/musicMatch/console
 ```
 
 ### Pendências no Projeto
-* CommandLineRunner para carga de categorias
-* Receber paramatros das chaves spotfy e openweathermap
-* Realizar teste com o cache para evitar multiplas requisições com o mesmo proposito
 * Documentar metodos
 * Implementar mais testes

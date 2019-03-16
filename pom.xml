@@ -5,7 +5,7 @@
 
     <groupId>com.nosbielc.music.match</groupId>
     <artifactId>music-match</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>music-match</name>
     <description>Projeto para seleção de musicas baseando-se na temperatura da sua localização.</description>
 
