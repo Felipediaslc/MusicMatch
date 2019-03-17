@@ -46,9 +46,4 @@ public class MusicMatchController extends MusicMatchControllerUtil implements IM
         return ResponseEntity.ok(this.negocioMusicMatch.executaMusicMatch("", lat, lon));
     }
 
-    @GetMapping("/123456")
-    public ResponseEntity<Object> teste() throws ListarException {
-        throw new ListarException();
-    }
-
 }
