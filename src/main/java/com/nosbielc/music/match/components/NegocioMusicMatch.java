@@ -136,7 +136,7 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
             solicitacao = this.solicitacaoService
                     .persist(new Solicitacao(cidade, SolicitacaoStatus.REQUERIDO));
 
-        } else if (lat != null || lon != null && cidade.equals("")) {
+        } else if (lat != null || lon != null && (cidade != null && cidade.equals(""))) {
             openWeatherDto = this.buscarTemperaturaDaCidadePorCoordenadas(lat, lon);
             solicitacao = this.solicitacaoService.persist(new Solicitacao(
                             String.valueOf(lat),
@@ -147,7 +147,7 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
 
             int temperaturaCapturada = (int) Math.round(openWeatherDto.get().getPrincipal().getTemp()) - 273;
 
-            log.info(String.format("Temperatura Capturada: %s", temperaturaCapturada));
+            log.info("Temperatura Capturada: {}", temperaturaCapturada);
 
             Optional<MusicMatch> musicMatch =
                     this.buscarMusicMatchPorTemperatura(
@@ -192,7 +192,7 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
             response.addWarns("Houve um erro ao pegar temperatura do local solicitado.");
         }
 
-        if (response.getWarns().size() > 0) {
+        if (!response.getWarns().isEmpty()) {
             solicitacao.setSolicitacaoStatus(SolicitacaoStatus.ERRO_PROCESSAMENTO);
             this.solicitacaoService.persist(solicitacao);
         } else {

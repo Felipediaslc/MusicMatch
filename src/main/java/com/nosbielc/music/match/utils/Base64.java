@@ -50,34 +50,20 @@ public class Base64 {
                 break;
             }
         }
-        // index in the output array
         int outIndex = 0;
-        // index in the input array
         int inIndex = 0;
-        // holds the value of the input character
         int bits = 0;
-        // holds the value of the input quantum
         int quantum = 0;
         for (int i = 0; i < len; i++) {
             chr = in[i];
-            // skip the neutral characters
             if ((chr == '\n') || (chr == '\r') || (chr == ' ') || (chr == '\t')) {
                 continue;
             }
             if ((chr >= 'A') && (chr <= 'Z')) {
-                // char ASCII value
-                // A 65 0
-                // Z 90 25 (ASCII - 65)
                 bits = chr - 65;
             } else if ((chr >= 'a') && (chr <= 'z')) {
-                // char ASCII value
-                // a 97 26
-                // z 122 51 (ASCII - 71)
                 bits = chr - 71;
             } else if ((chr >= '0') && (chr <= '9')) {
-                // char ASCII value
-                // 0 48 52
-                // 9 57 61 (ASCII + 4)
                 bits = chr + 4;
             } else if (chr == '+') {
                 bits = 62;
