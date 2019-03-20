@@ -196,9 +196,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     private ResponseEntity<Object> buildResponseEntity(Error error) {
-        return new ResponseEntity<>(new Response() {{
-                                        setError(error);
-                                    }}, error.getStatus());
+        Response response = new Response();
+        response.setError(error);
+        return new ResponseEntity<>(response, error.getStatus());
     }
 
 }

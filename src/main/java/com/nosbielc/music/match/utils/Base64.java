@@ -87,7 +87,7 @@ public class Base64 {
                 return null;
             }
             // append the value to the quantum
-            quantum = (quantum << 6) | (byte) bits;
+            quantum = (quantum << 6) | (((byte) bits) & 0xff);
             if (inIndex % 4 == 3) {
                 // 4 characters were read, so make the output:
                 out[outIndex++] = (byte) (quantum >> 16);

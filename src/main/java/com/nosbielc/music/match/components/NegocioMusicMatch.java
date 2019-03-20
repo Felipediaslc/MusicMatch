@@ -131,12 +131,12 @@ public class NegocioMusicMatch implements INegocioMusicMatch {
         Optional<OpenWeatherDto> openWeatherDto = Optional.empty();
         Solicitacao solicitacao = new Solicitacao();
 
-        if (cidade != null && cidade != "") {
+        if (cidade != null && !cidade.equals("")) {
             openWeatherDto = this.buscarTemperaturaDaCidade(cidade);
             solicitacao = this.solicitacaoService
                     .persist(new Solicitacao(cidade, SolicitacaoStatus.REQUERIDO));
 
-        } else if (lat != null || lon != null && cidade == "") {
+        } else if (lat != null || lon != null && cidade.equals("")) {
             openWeatherDto = this.buscarTemperaturaDaCidadePorCoordenadas(lat, lon);
             solicitacao = this.solicitacaoService.persist(new Solicitacao(
                             String.valueOf(lat),
